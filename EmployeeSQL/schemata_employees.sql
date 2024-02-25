@@ -1,4 +1,3 @@
--- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/EzvXN6
 
 -- Ensure database is set to read dates as month,date,year
@@ -15,14 +14,12 @@ CREATE TABLE if not exists Departments (
      )
 );
 
-CREATE TABLE if not exists Dept_Emp (
-    emp_no int   NOT NULL,
-    dept_no varchar(4)   NOT NULL
-);
-
-CREATE TABLE if not exists Dept_Manager (
-    dept_no varchar(4)   NOT NULL,
-    emp_no int   NOT NULL
+CREATE TABLE if not exists Titles (
+    title_id varchar(5)   NOT NULL,
+    title varchar(20)   NOT NULL,
+    CONSTRAINT pk_Titles PRIMARY KEY (
+        title_id
+     )
 );
 
 CREATE TABLE if not exists Employees (
@@ -38,17 +35,19 @@ CREATE TABLE if not exists Employees (
      )
 );
 
+CREATE TABLE if not exists Dept_Emp (
+    emp_no int   NOT NULL,
+    dept_no varchar(4)   NOT NULL
+);
+
+CREATE TABLE if not exists Dept_Manager (
+    dept_no varchar(4)   NOT NULL,
+    emp_no int   NOT NULL
+);
+
 CREATE TABLE if not exists Salaries (
     emp_no int   NOT NULL,
     salary int   NOT NULL
-);
-
-CREATE TABLE if not exists Titles (
-    title_id varchar(5)   NOT NULL,
-    title varchar(20)   NOT NULL,
-    CONSTRAINT pk_Titles PRIMARY KEY (
-        title_id
-     )
 );
 
 -- Add foreign key constraints
